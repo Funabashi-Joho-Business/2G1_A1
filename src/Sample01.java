@@ -6,6 +6,7 @@ public static void main(String[] args) {
 		System.out.println(i);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	System.out.println("シオカラーズ過激派");
 =======
 <<<<<<< HEAD
@@ -14,5 +15,8 @@ public static void main(String[] args) {
 	System.out.println("oooeeaaeeoooooooe");
 >>>>>>> origin/sample
 >>>>>>> master
+=======
+	System.out.println("シオカラーズ過激派");
+>>>>>>> origin/Hon
 }
 }
