@@ -1,0 +1,36 @@
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	background: #000;
+}
+#side {  
+    height: 100%;
+    width: 200px;  
+    background: #F7F7F7;  
+    padding: 10px;  
+    position: fixed;   
+    z-index: 20;  
+    font-size: 80%;
+}
+hr {
+	padding: 0px;
+}
+#main {
+	height: 100%;
+	margin-left: 221px;
+	padding: 10px;
+	background: #FFF;
+}
+.t {
+	font-weight: bolder;
+}
+.t:hover {
+    color: #FFBF00;
+}
+#side center{
+	font-size: 120%;
+}
+
+
