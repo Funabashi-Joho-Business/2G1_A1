@@ -75,6 +75,7 @@ public class Main extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/plain; charset=UTF-8");
         PrintWriter out = response.getWriter();
+        out.format("");
 	}
 
 
