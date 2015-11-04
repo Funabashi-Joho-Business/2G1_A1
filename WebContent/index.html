@@ -63,15 +63,18 @@ last_date[1] = 29;
 }
 }
 editMsg = "";
-editMsg += "<TABLE border=0 cellspacing=3><TR><TD colspan='7' align='center'><B><U><FONT size='2'>" + year + "年" + month + "月</FONT></B></U></TD></TR>\n";
-editMsg += "<TR>" + defTD("日","red") + defTD("月","black") + defTD("火","black") + defTD("水","black") + defTD("木","black") + defTD("金","black") + defTD("土","blue") + "</TR>\n";
-editMsg += "<TR>";
+editMsg += "<TABLE cellspacing=3><TR><TD colspan='7' align='center'><B><U><FONT size='2'>" + year + "年" + month + "月</FONT></B></U></TD></TR>\n";
+editMsg += "<TR id = 'week'>" + defTD("日","red") + defTD("月","black") + defTD("火","black") + defTD("水","black") + defTD("木","black") + defTD("金","black") + defTD("土","blue") + "</TR>\n";
+editMsg += "<TR id = 'day'>";
+
+
 for(dayIndex=0; dayIndex<(new Date(year,month-1,1)).getDay(); dayIndex++){
 	editMsg += defTD("&nbsp;","white");
 }
+
 for(i=1; i<=last_date[month-1]; i++){
 	if(i!=1 && dayIndex == 0){
-	editMsg += "<TR>";
+	editMsg += "<TR id = 'day'>";
 }
 if(i==date){
 	editMsg += defTD(i,"orange");
@@ -94,7 +97,7 @@ editMsg += "</TABLE>\n";
 document.getElementById("carenda").innerHTML = editMsg;
 }
 function defTD(str, iro){
-return "<TD align='left' display = 'block' width = '50px' height = '10px'><B><FONT size='2' color='" + iro + "'>" + str + "</FONT></B></TD>";
+return "<TD  display = 'block' ><B><FONT size='2' color='" + iro + "'>" + str + "</FONT></B></TD>";
 }
 //-->
 </SCRIPT>
@@ -134,7 +137,7 @@ return "<TD align='left' display = 'block' width = '50px' height = '10px'><B><FO
 			<hr>
 			<div onclick="obj=document.getElementById('t').style; obj.display=(obj.display=='none')?'block':'none';">
 				<div class="t"><a style="cursor:pointer;">今日の天気</a></div>
-			</div>	
+			</div>
 			<div id="t" style="display:none;clear:both;">
 				<script language="javascript" charset="euc-jp" type="text/javascript" src="http://weather.livedoor.com/plugin/common/forecast/12.js"></script>
 			</div>
@@ -159,14 +162,14 @@ return "<TD align='left' display = 'block' width = '50px' height = '10px'><B><FO
 	</div>
 	<div id="main">
 		<DIV id="dValue" style="position:absolute; visibility:hidden"></DIV>
-<TABLE border="0" cellspacing="0">
+<TABLE >
 <TR>
 <TD align="left"><DIV style="cursor:pointer" onClick="carenda(1)"><FONT color="pink" size="1"><B>&lt;&lt;</B></FONT></DIV></TD>
 <TD align="center"><FONT color="gray"><B>カレンダー</B></FONT></TD>
 <TD align="right"><DIV style="cursor:pointer" onClick="carenda(2)"><FONT color="pink" size="1"><B>&gt;&gt;</B></FONT></DIV></TD>
 </TR>
 <TR><TD colspan="3">
-<TABLE border="2" cellspacing="1" bordercolor="pink"><TR><TD>
+<TABLE><TR><TD>
 <DIV id="carenda">
 <SCRIPT type="text/JavaScript">
 <!--
