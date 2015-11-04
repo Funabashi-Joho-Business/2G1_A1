@@ -3,15 +3,15 @@ html {
 }
 body {
 	height: 100%;
-	background: #000;
+	background:
 }
-#side {  
+#side {
     height: 100%;
-    width: 200px;  
-    background: #F7F7F7;  
-    padding: 10px;  
-    position: fixed;   
-    z-index: 20;  
+    width: 200px;
+    background: #F7F7F7;
+    padding: 10px;
+    position: fixed;
+    z-index: 20;
     font-size: 80%;
 }
 hr {
@@ -33,4 +33,22 @@ hr {
 	font-size: 120%;
 }
 
+table {
+	width:980px;
+	height:00px;
+	}
+td tr td tr td{
+	border:solid 1px #000000;
+	}
+#week{
+	height:30px;
+	text-align:center;
+	}
+
+#day{
+	width:100px;
+	height:100px;
+	text-align:left;
+	vertical-align:top;
+	}
 
