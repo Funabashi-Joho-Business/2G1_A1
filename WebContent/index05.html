@@ -1,11 +1,91 @@
-﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="ja">
 <head>
-	<meta charset="UTF-8"/>
-	<script type="text/javascript" src="Scripts/Main05.js"></script>
+<meta charset="UTF-8">
+<title>FJBスケジュール管理サイト</title>
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="02_normalize.css">
+<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
+<SCRIPT type="text/JavaScript" src="Scripts/Main05.js"></SCRIPT>
+<script type="text/javascript" src="Scripts/AflLib.js"></script>
 </head>
 <body>
-<div id="output">
-</div>
+	<div id="side">
+		<script>
+			var hiduke = new Date();
+			var year = hiduke.getFullYear();
+			var month = hiduke.getMonth() + 1;
+			var week = hiduke.getDay();
+			var day = hiduke.getDate();
+			var yobi = new Array("日", "月", "火", "水", "木", "金", "土");
+			document.write("<center>" + year + "年" + month + "月" + day + "日 （"
+					+ yobi[week] + "）</center>");
+		</script>
+		<div id="tsc">
+			<hr>
+			<div
+				onclick="obj=document.getElementById('sc').style; obj.display=(obj.display=='none')?'block':'none';">
+				<div class="t">
+					<a style="cursor: pointer;">今日の予定</a>
+				</div>
+			</div>
+			<div id="sc" style="display: none; clear: both;">CD発売</div>
+		</div>
+		<div id="jikanwari">
+			<hr>
+			<div
+				onclick="obj=document.getElementById('j').style; obj.display=(obj.display=='none')?'block':'none';">
+				<div class="t">
+					<a style="cursor: pointer;">時間割</a>
+				</div>
+			</div>
+			<div id="j" style="display: none; clear: both;">
+				<br>
+			</div>
+		</div>
+		<div id="tenki">
+			<hr>
+			<div
+				onclick="obj=document.getElementById('t').style; obj.display=(obj.display=='none')?'block':'none';">
+				<div class="t">
+					<a style="cursor: pointer;">今日の天気</a>
+				</div>
+			</div>
+			<div id="t" style="display: none; clear: both;">
+				<script language="javascript" charset="euc-jp"
+					type="text/javascript"
+					src="http://weather.livedoor.com/plugin/common/forecast/12.js"></script>
+			</div>
+		</div>
+		<div id="jikanwariitiran">
+			<hr>
+			<div
+				onclick="obj=document.getElementById('j1').style; obj.display=(obj.display=='none')?'block':'none';">
+				<div class="t">
+					<a style="cursor: pointer;">時間割一覧</a>
+				</div>
+			</div>
+			<div id="j1" style="display: none; clear: both;">
+				<a href="j.pdf" target="_blank">一覧を表示(PDF)</a>
+			</div>
+		</div>
+		<div id="sns">
+			<hr>
+			<div class="t">
+				SNS<br>
+			</div>
+		</div>
+		<hr>
+		<div
+			onclick="obj=document.getElementById('j1').style; obj.display='none'; obj=document.getElementById('t').style; obj.display='none'; obj=document.getElementById('j').style; obj.display='none'; obj=document.getElementById('sc').style; obj.display='none';">
+			<div align="right">
+				<a style="cursor: pointer;">たたむ</a>
+			</div>
+		</div>
+	</div>
+	<div id="main"></div>
 </body>
 </html>

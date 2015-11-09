@@ -1,229 +1,32 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>FJBスケジュール管理サイト</title>
-<meta name="author" content="">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="02_normalize.css">
-<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
-<SCRIPT type="text/JavaScript">
-<!--
-	function carenda(num) {
-		var now = new Date();
-		var year;
-		var month;
-		var date;
-		var dValue = document.getElementById("dValue");
+<DIV id="dValue" style="position: absolute; visibility: hidden"></DIV>
+<TABLE>
+	<!-- 	一行目出力 -->
+	<TR>
+		<TD align="left"><DIV style="cursor: pointer"
+				onClick="carenda(1)">
+				<FONT color="pink" size="1"><B>&lt;&lt;</B></FONT>
+			</DIV></TD>
+		<TD align="center"><FONT color="gray"><B>カレンダー</B></FONT></TD>
+		<TD align="right"><DIV style="cursor: pointer"
+				onClick="carenda(2)">
+				<FONT color="pink" size="1"><B>&gt;&gt;</B></FONT>
+			</DIV></TD>
+	</TR>
+	<TR>
+		<TD colspan="3">
+			<TABLE>
+				<TR>
+					<TD>
+						<DIV id="carenda">
+							<SCRIPT type="text/JavaScript" src="Scripts/Main05.js">
 
-		switch (parseInt(num)) {
-		case 0:
-			year = now.getFullYear();
-			month = now.getMonth() + 1;
-			date = now.getDate();
-			break;
-		case 1:
-			var backMDate = new Date(parseInt(dValue.innerHTML) - 24 * 60 * 60
-					* 1000 * 1);
-			if (backMDate.getMonth() == now.getMonth()
-					&& backMDate.getFullYear() == now.getFullYear()) {
-				year = now.getFullYear();
-				month = now.getMonth() + 1;
-				date = now.getDate();
-			} else {
-				year = backMDate.getFullYear();
-				month = backMDate.getMonth() + 1;
-				date = -1;
-			}
-			break;
-		case 2:
-			var nextMDate = new Date(parseInt(dValue.innerHTML) + 24 * 60 * 60
-					* 1000 * 31);
-			if (nextMDate.getMonth() == now.getMonth()
-					&& nextMDate.getFullYear() == now.getFullYear()) {
-				year = now.getFullYear();
-				month = now.getMonth() + 1;
-				date = now.getDate();
-			} else {
-				year = nextMDate.getFullYear();
-				month = nextMDate.getMonth() + 1;
-				date = -1;
-			}
-			break;
-		}
+								carenda(0);
 
-		dValue.innerHTML = (new Date(year, month - 1, 1)).getTime();
-
-		var last_date = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
-				31);
-		var editMsg;
-		if (month == 2) {
-			if (year % 4 == 0) {
-				if ((year % 100 == 0) && (year % 400 != 0)) {
-				} else {
-					last_date[1] = 29;
-				}
-			}
-		}
-		editMsg = "";
-		editMsg += "<TABLE cellspacing=3><TR><TD colspan='7' align='center'><B><U><FONT size='2'>"
-				+ year + "年" + month + "月</FONT></B></U></TD></TR>\n";
-		editMsg += "<TR id = 'week'>" + defTD("日", "red") + defTD("月", "black")
-				+ defTD("火", "black") + defTD("水", "black")
-				+ defTD("木", "black") + defTD("金", "black")
-				+ defTD("土", "blue") + "</TR>\n";
-		editMsg += "<TR id = 'day'>";
-
-		for (dayIndex = 0; dayIndex < (new Date(year, month - 1, 1)).getDay(); dayIndex++) {
-			editMsg += defTD("&nbsp;", "white");
-		}
-
-		for (i = 1; i <= last_date[month - 1]; i++) {
-			if (i != 1 && dayIndex == 0) {
-				editMsg += "<TR id = 'day'>";
-			}
-			if (i == date) {
-				editMsg += defTD(i, "orange");
-			} else {
-				switch (dayIndex) {
-				case 0:
-					editMsg += defTD(i, "red");
-					break;
-				case 6:
-					editMsg += defTD(i, "blue");
-					break;
-				default:
-					editMsg += defTD(i, "black");
-					break;
-				}
-			}
-			if (dayIndex == 6) {
-				editMsg += "</TR>\n";
-			}
-			dayIndex++;
-			dayIndex %= 7;
-		}
-		if (dayIndex != 7) {
-			editMsg += "</TR>\n";
-		}
-		editMsg += "</TABLE>\n";
-		document.getElementById("carenda").innerHTML = editMsg;
-	}
-	function defTD(str, iro) {
-		return "<TD  display = 'block' ><B><FONT size='2' color='" + iro + "'>"
-				+ str + "</FONT></B></TD>";
-	}
-//-->
-</SCRIPT>
-</head>
-<body>
-	<div id="side">
-		<script>
-			var hiduke = new Date();
-			var year = hiduke.getFullYear();
-			var month = hiduke.getMonth() + 1;
-			var week = hiduke.getDay();
-			var day = hiduke.getDate();
-			var yobi = new Array("日", "月", "火", "水", "木", "金", "土");
-			document.write("<center>" + year + "年" + month + "月" + day + "日 （"
-					+ yobi[week] + "）</center>");
-		</script>
-		<div id="tsc">
-			<hr>
-			<div
-				onclick="obj=document.getElementById('sc').style; obj.display=(obj.display=='none')?'block':'none';">
-				<div class="t">
-					<a style="cursor: pointer;">今日の予定</a>
-				</div>
-			</div>
-			<div id="sc" style="display: none; clear: both;">CD発売</div>
-		</div>
-		<div id="jikanwari">
-			<hr>
-			<div
-				onclick="obj=document.getElementById('j').style; obj.display=(obj.display=='none')?'block':'none';">
-				<div class="t">
-					<a style="cursor: pointer;">時間割</a>
-				</div>
-			</div>
-			<div id="j" style="display: none; clear: both;">
-				一限 システム開発<br> 二限 office応用<br> 三限 Linux<br>
-			</div>
-		</div>
-		<div id="tenki">
-			<hr>
-			<div
-				onclick="obj=document.getElementById('t').style; obj.display=(obj.display=='none')?'block':'none';">
-				<div class="t">
-					<a style="cursor: pointer;">今日の天気</a>
-				</div>
-			</div>
-			<div id="t" style="display: none; clear: both;">
-				<script language="javascript" charset="euc-jp"
-					type="text/javascript"
-					src="http://weather.livedoor.com/plugin/common/forecast/12.js"></script>
-			</div>
-		</div>
-		<div id="jikanwariitiran">
-			<hr>
-			<div
-				onclick="obj=document.getElementById('j1').style; obj.display=(obj.display=='none')?'block':'none';">
-				<div class="t">
-					<a style="cursor: pointer;">時間割一覧</a>
-				</div>
-			</div>
-			<div id="j1" style="display: none; clear: both;">
-				<a href="j.pdf" target="_blank">一覧を表示(PDF)</a>
-			</div>
-		</div>
-		<div id="sns">
-			<hr>
-			<div class="t">
-				SNS<br>
-			</div>
-		</div>
-		<hr>
-		<div
-			onclick="obj=document.getElementById('j1').style; obj.display='none'; obj=document.getElementById('t').style; obj.display='none'; obj=document.getElementById('j').style; obj.display='none'; obj=document.getElementById('sc').style; obj.display='none';">
-			<div align="right">
-				<a style="cursor: pointer;">たたむ</a>
-			</div>
-		</div>
-	</div>
-	<div id="main">
-		<DIV id="dValue" style="position: absolute; visibility: hidden"></DIV>
-		<TABLE>
-			<TR>
-				<TD align="left"><DIV style="cursor: pointer"
-						onClick="carenda(1)">
-						<FONT color="pink" size="1"><B>&lt;&lt;</B></FONT>
-					</DIV></TD>
-				<TD align="center"><FONT color="gray"><B>カレンダー</B></FONT></TD>
-				<TD align="right"><DIV style="cursor: pointer"
-						onClick="carenda(2)">
-						<FONT color="pink" size="1"><B>&gt;&gt;</B></FONT>
-					</DIV></TD>
-			</TR>
-			<TR>
-				<TD colspan="3">
-					<TABLE>
-						<TR>
-							<TD>
-								<DIV id="carenda">
-									<SCRIPT type="text/JavaScript">
-									<!--
-										carenda(0);
-									//-->
-									</SCRIPT>
-								</DIV>
-							</TD>
-						</TR>
-					</TABLE>
-				</TD>
-			</TR>
-		</TABLE>
-	</div>
-</body>
-</html>
+							</SCRIPT>
+						</DIV>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
