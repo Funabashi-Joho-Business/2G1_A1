@@ -27,6 +27,8 @@ function Main() {
 	{
 		var jikanwari = document.querySelector("div#j");
 		jikanwari.innerHTML =data.Name;
+		var yotei = document.querySelector("div#sc");
+		yotei.innerHTML =data.Value;
 	}
 }
 
