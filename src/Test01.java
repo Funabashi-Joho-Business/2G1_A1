@@ -19,6 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.arnx.jsonic.JSON;
 
+
+class AjaxData
+{
+	public String A;
+}
+
 /**
  * Servlet implementation class Test01
  */
@@ -117,7 +123,7 @@ public class Test01 extends HttpServlet {
 			s = "";
 			res.next();
 			for (int a = 1; a <= 3; a++) {
-				s += String.format("%d限　%s<br>", a, res.getString(1));
+				s += String.format("%d限　<span id = \"ID%d\">%s</span><br>",a, a, res.getString(1));
 				res.next();
 			}
 			String s1 = String.format(
@@ -129,8 +135,6 @@ public class Test01 extends HttpServlet {
 			}
 			if(s1=="")
 				s1="今日の予定はありません";
-
-
 
 			PrintWriter output = response.getWriter();
 			// 送信データの作成
@@ -149,6 +153,13 @@ public class Test01 extends HttpServlet {
 		// 終了部分
 		// 出力終了
 		out.close();
+
+
+		//データ受け取り処理
+		AjaxData data = JSON.decode(request.getInputStream(),AjaxData.class);
+
+
+
 
 	}
 
