@@ -25,7 +25,7 @@ function Main() {
 	AFL.sendJson("Test01",null,onJson);
 	function onJson(data)
 	{
-		var jikanwari = document.querySelector("div#j");
+		var jikanwari = document.querySelector("div#jikanwari");
 		jikanwari.innerHTML =data.Name;
 		var yotei = document.querySelector("div#sc");
 		yotei.innerHTML =data.Value;
