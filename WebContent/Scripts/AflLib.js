@@ -114,7 +114,7 @@
 		}
 		return dest;
 	}
-
+	AFL.replaceText = replaceText;
 	//---------------------------------------
 	//アドレスの取得、パラメータの削除
 	//	引数	無し
@@ -254,7 +254,7 @@
 	}
 	AFL.readFile = function(url,proc)
 	{
-		var xmlHttp = new XMLHttpRequest();;
+		var xmlHttp = new XMLHttpRequest();
 		xmlHttp.onreadystatechange = function () {
 		if (xmlHttp.readyState == 4) {
 				proc(xmlHttp);
@@ -1484,7 +1484,7 @@
 
 
 				//マーク
-				ctx.strokeStyle = color[3];;
+				ctx.strokeStyle = color[3];
 				ctx.moveTo(width, 0);
 				ctx.lineTo(width, height);
 				ctx.lineTo(0, height);
@@ -2213,6 +2213,9 @@
 		}
 
 		var cal = WM.createWindow();
+		cal.style.fontSize = "13px";
+		cal.style.lineHeight = "17px";
+		cal.style.fontFamily = "monospace";
 		cal.setSize(275, 220);
 		var calendar = document.createElement("div");
 		calendar.style.width = "275px";
@@ -2418,6 +2421,7 @@
 		var win = WM.createFrameWindow();
 		win.setSize(200, 100);
 		win.setBackgroundColor(0xaaffffff);
+
 		var mMsgParent = document.createElement("div");
 		mMsgParent.style.width = win.getClientWidth() + "px";
 		mMsgParent.style.height = win.getClientHeight() + "px";
