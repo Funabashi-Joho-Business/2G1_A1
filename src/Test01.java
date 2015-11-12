@@ -122,6 +122,7 @@ public class Test01 extends HttpServlet {
 			res.next();
 			for (int a = 1; a <= 3; a++) {
 				s += String.format("%d限　<span id = \"ID%d\">%s</span><br>",a, a, res.getString(1));
+<<<<<<< HEAD
 =======
 			String s;
 			String s2 = "";
@@ -131,6 +132,8 @@ public class Test01 extends HttpServlet {
 						.format("select NAIYO from T_JIKANWARI where ID >= %d ORDER BY ID",getDay());
 				res = mOracle.query(s);
 >>>>>>> origin/K
+=======
+>>>>>>> cc529602bb2ad76930b4faea95ee096873542baa
 				res.next();
 				for (int a = 1; a < 4; a++) {
 					s2 += String.format("%d限　%s<br>", a, res.getString(1));
@@ -158,6 +161,7 @@ public class Test01 extends HttpServlet {
 <<<<<<< HEAD
 			if(s1=="")
 				s1="今日の予定はありません";
+<<<<<<< HEAD
 =======
 			if (s1 == "")
 				s1 = "今日の予定はありません";
@@ -173,6 +177,8 @@ public class Test01 extends HttpServlet {
 				s3 = "ありません";
 			s1+=s3;
 >>>>>>> origin/K
+=======
+>>>>>>> cc529602bb2ad76930b4faea95ee096873542baa
 
 			PrintWriter output = response.getWriter();
 			// 送信データの作成
