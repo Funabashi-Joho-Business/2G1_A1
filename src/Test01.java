@@ -36,8 +36,6 @@ public class Test01 extends HttpServlet {
 				.replaceAll("<", "&lt;").replaceAll("\n", "<br>");
 	}
 
-
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -114,10 +112,10 @@ public class Test01 extends HttpServlet {
 
 		// 出力ストリームの取得
 
-
 		PrintWriter out = response.getWriter();
 		// データの抽出
 		try {
+<<<<<<< HEAD
 			String s = String
 					.format("select NAIYO from T_JIKANWARI WHERE DAY = '%s' ORDER BY PERIOD",
 							getDay());
@@ -126,17 +124,63 @@ public class Test01 extends HttpServlet {
 			res.next();
 			for (int a = 1; a <= 3; a++) {
 				s += String.format("%d限　<span id = \"ID%d\">%s</span><br>",a, a, res.getString(1));
+<<<<<<< HEAD
+=======
+			String s;
+			String s2 = "";
+			ResultSet res;
+			if (getDay() != 999) {
+				s = String
+						.format("select NAIYO from T_JIKANWARI where ID >= %d ORDER BY ID",getDay());
+				res = mOracle.query(s);
+>>>>>>> origin/K
+=======
+>>>>>>> cc529602bb2ad76930b4faea95ee096873542baa
 				res.next();
+				for (int a = 1; a < 4; a++) {
+					s2 += String.format("%d限　%s<br>", a, res.getString(1));
+					res.next();
+				}
+			}else{
+				s2 = "授業はありません<br>";
 			}
+			s = "<hr><div onclick=\"obj=document.getElementById('j').style; obj.display=(obj.display=='none')?'block':'none';\"><div class=\"t\"><a style=\"cursor: pointer;\">";
+			if (getTime() >= 1510) {
+				s += "明日の時間割";
+			} else {
+				s += "今日の時間割";
+			}
+			s += "</a></div></div><div id=\"j\" style=\"display: none; clear: both;\">";
+			s += s2;
+			s += "</div></div>";
 			String s1 = String.format(
 					"select NAIYOU from T_YOTEI WHERE Y ='%s'", getDate());
 			res = mOracle.query(s1);
-			s1="";
-			while(res.next()){
+			s1 = "";
+			while (res.next()) {
 				s1 += String.format("%s<br>", res.getString(1));
 			}
+<<<<<<< HEAD
 			if(s1=="")
 				s1="今日の予定はありません";
+<<<<<<< HEAD
+=======
+			if (s1 == "")
+				s1 = "今日の予定はありません";
+			s1 += "　　明日の予定は";
+			String s3 = String.format(
+					"select NAIYOU from T_YOTEI WHERE Y ='%s'", getNextDate());
+			res = mOracle.query(s3);
+			s3 = "";
+			while (res.next()) {
+				s3 += String.format("<br>　　%s", res.getString(1));
+			}
+			if (s3 == "")
+				s3 = "ありません";
+			s1+=s3;
+>>>>>>> origin/K
+=======
+>>>>>>> cc529602bb2ad76930b4faea95ee096873542baa
 
 			PrintWriter output = response.getWriter();
 			// 送信データの作成
@@ -171,23 +215,23 @@ public class Test01 extends HttpServlet {
 
 	}
 
-	public static String getDay() {
+	public static int getDay() {
 		Calendar cal = Calendar.getInstance();
 		switch (cal.get(Calendar.DAY_OF_WEEK)) {
 		case Calendar.SUNDAY:
-			return "日";
+			return 999;
 		case Calendar.MONDAY:
-			return "月";
+			return 1;
 		case Calendar.TUESDAY:
-			return "火";
+			return 4;
 		case Calendar.WEDNESDAY:
-			return "水";
+			return 7;
 		case Calendar.THURSDAY:
-			return "木";
+			return 10;
 		case Calendar.FRIDAY:
-			return "金";
+			return 13;
 		case Calendar.SATURDAY:
-			return "土";
+			return 999;
 		}
 		throw new IllegalStateException();
 	}
@@ -198,5 +242,21 @@ public class Test01 extends HttpServlet {
 				today.get(MONTH) + 1, // 月
 				today.get(DATE)); // 日
 		return d;
+	}
+	public static String getNextDate() {
+		GregorianCalendar today = new GregorianCalendar();
+		String d = String.format("%04d/%02d/%d", today.get(YEAR), // 年
+				today.get(MONTH) + 1, // 月
+				today.get(DATE) + 1); // 日
+		return d;
+	}
+
+	public static int getTime() {
+		Calendar now = Calendar.getInstance();
+
+		int h = now.get(Calendar.HOUR_OF_DAY);
+		int m = now.get(Calendar.MINUTE);
+		int time = h * 100 + m;
+		return time;
 	}
 }
