@@ -20,10 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import net.arnx.jsonic.JSON;
 
 
-class AjaxData
-{
-	public String A;
-}
+
 
 /**
  * Servlet implementation class Test01
@@ -103,6 +100,11 @@ public class Test01 extends HttpServlet {
 		public String Value;
 	}
 
+	class AjaxData2{
+		public String value;
+		public int a;
+	}
+
 	protected void action(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// 要求文字コードのセット(Javaプログラムからはき出す文字コード)
@@ -150,16 +152,22 @@ public class Test01 extends HttpServlet {
 			System.err.println("error");
 		}
 
-		// 終了部分
-		// 出力終了
-		out.close();
 
 
 		//データ受け取り処理
-		AjaxData data = JSON.decode(request.getInputStream(),AjaxData.class);
+	 	try {
+			AjaxData2 data2 = JSON.decode(request.getInputStream(),AjaxData2.class);
+			String tt = String.format("update t_jikanwari set naiyo='%s' where period=%d and day = '%s'", data2.value,data2.a,getDay());
+			mOracle.query(tt);
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 
-
+		// 終了部分
+		// 出力終了
+		out.close();
 
 	}
 
