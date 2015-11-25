@@ -372,7 +372,8 @@
 		}
 		catch (e) {
 			alert("読み込みエラー");
-			proc(null);
+			if (proc != null)
+				proc(null);
 			return null;
 		}
 		return null;
