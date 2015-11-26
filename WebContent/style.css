@@ -47,7 +47,7 @@ td tr td tr td{
 
 #day td{
 	width:100px;
-	height:120px;
+	height:70px;
 	text-align:left;
 	vertical-align:top;
 	}
@@ -57,6 +57,6 @@ textarea{
 }
 
 #textarea{
-	position:relative;top:20px;
+	position:relative;top:7px;
 }
 
