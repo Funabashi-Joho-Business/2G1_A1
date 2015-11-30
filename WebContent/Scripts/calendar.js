@@ -192,7 +192,7 @@ function defTD(str, iro) {
 				+ "-"
 				+ ("0" + textIndex).slice(-2)
 				+ "'"
-				+ "rows='3' cols='13'onMouseover=this.style.backgroundColor='orange' onMouseout=this.style.backgroundColor='white'>"
+				+ "rows='3' cols='13'onMouseover=this.style.backgroundColor='#fff7cc' onMouseout=this.style.backgroundColor='white'>"
 				+ "</textarea></div></TD>";
 	}
 
