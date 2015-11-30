@@ -30,8 +30,9 @@ function save(textarea) {
 	Jsondata.id = textarea.id;
 	Jsondata.value = textarea.value;
 	Jsondata.cmd = "write";
-	AFL.sendJson("Calendar", Jsondata, function() {
-	});
+	if(Jsondata.value!=""){
+		AFL.sendJson("Calendar", Jsondata, function(){});
+	}
 
 }
 
