@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>FJBスケジューラー</title>
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="02_normalize.css">
+<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
+<script type="text/javascript" src="Scripts/AflLib.js"></script>
+<SCRIPT type="text/JavaScript" src="Scripts/login.js"></SCRIPT>
+<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+		<h1>ログイン</h1>
+		<hr>
+		<div align="center">
+			<table border="0">
+				<tr>
+					<th class="login_field">ユーザID</th>
+					<td class="login_field"><input type="text" name="user_id"
+						value="" size="24" id="user_id" onkeyup="fieldChanged();"
+						onchange="fieldChanged();"></td>
+				</tr>
+				<tr>
+					<th class="login_field">パスワード</th>
+					<td class="login_field"><input type="password" name="password"
+						value="" size="24" id="password" onkeyup="fieldChanged();"
+						onchange="fieldChanged();"></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="login_button"><input
+							type="submit" value="ログイン" id="login"></td>
+				</tr>
+			</table>
+		</div>
+</body>
+
+
+</html>

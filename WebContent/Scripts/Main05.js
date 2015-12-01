@@ -202,3 +202,13 @@ function defTD(str, iro) {
 	return "<TD  display = 'block' ><B><FONT size='2' color='" + iro + "'>"
 			+ str + "</FONT></B></TD>";
 }
+
+var logout = document.querySelector("div#logout");
+logout.addEventListener("click", onClick);
+
+function onClick() {
+
+
+	document.location = "index05.html";
+
+}

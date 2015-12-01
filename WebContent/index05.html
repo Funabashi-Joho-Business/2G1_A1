@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>FJBスケジュール管理サイト</title>
+<title>FJBスケジューラー</title>
 <meta name="author" content="">
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -11,11 +11,13 @@
 <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
 <SCRIPT type="text/JavaScript" src="Scripts/Main05.js"></SCRIPT>
 <script type="text/javascript" src="Scripts/AflLib.js"></script>
-<link rel="shortcut icon" href="favicon.ico" >
+<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 	<div id="side">
-		<center><img border="0" src="logo.png" width="150" alt="logo"></center>
+		<center>
+			<a href="javascript:location.reload();"><img border="0" src="logo.png" width="100" alt="logo"></a>
+		</center>
 		<script>
 			var hiduke = new Date();
 			var year = hiduke.getFullYear();
@@ -76,17 +78,38 @@
 		</div>
 		<div id="sns">
 			<hr>
-			<div class="t">
-				SNS<br>
+			<div
+				onclick="obj=document.getElementById('sn').style; obj.display=(obj.display=='none')?'block':'none';">
+				<div class="t">
+					<a style="cursor: pointer;">SNS</a>
+				</div>
+			</div>
+			<div id="sn" style="display: none; clear: both;">
+				<a class="twitter-timeline" href="https://twitter.com/FJB_sc"
+					data-widget-id="666782556927365120">@FJB_scさんのツイート</a>
+				<script>
+					!function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/
+								.test(d.location) ? 'http' : 'https';
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = p + "://platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, "script", "twitter-wjs");
+				</script>
 			</div>
 		</div>
+
 		<hr>
 		<div
-			onclick="obj=document.getElementById('j1').style; obj.display='none'; obj=document.getElementById('t').style; obj.display='none'; obj=document.getElementById('j').style; obj.display='none'; obj=document.getElementById('sc').style; obj.display='none';">
+			onclick="obj=document.getElementById('sn').style; obj.display='none';obj=document.getElementById('j1').style; obj.display='none'; obj=document.getElementById('t').style; obj.display='none'; obj=document.getElementById('j').style; obj.display='none'; obj=document.getElementById('sc').style; obj.display='none';">
 			<div align="right">
 				<a style="cursor: pointer;">たたむ</a>
 			</div>
 		</div>
+		<div id = "logout">ログアウト</div>
 	</div>
 	<div id="main"></div>
 </body>
