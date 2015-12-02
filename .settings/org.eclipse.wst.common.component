@@ -2,6 +2,7 @@
     <wb-module deploy-name="TeamA">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/" source-path="/"/>
         <property name="context-root" value="TeamA"/>
         <property name="java-output-path" value="/TeamA/bin"/>
     </wb-module>
