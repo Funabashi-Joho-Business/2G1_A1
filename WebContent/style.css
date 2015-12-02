@@ -46,10 +46,18 @@ td tr td tr td{
 	text-align:center;
 	}
 
-#day{
+#day td{
 	width:100px;
-	height:100px;
+	height:70px;
 	text-align:left;
 	vertical-align:top;
 	}
+
+textarea{
+	resize: none;
+}
+
+#textarea{
+	position:relative;top:7px;
+}
 

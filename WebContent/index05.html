@@ -11,12 +11,14 @@
 <!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
 <SCRIPT type="text/JavaScript" src="Scripts/Main05.js"></SCRIPT>
 <script type="text/javascript" src="Scripts/AflLib.js"></script>
+<script type="text/JavaScript" src="Scripts/calendar.js"></script>
 <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 	<div id="side">
 		<center>
-			<a href="javascript:location.reload();"><img border="0" src="logo.png" width="100" alt="logo"></a>
+			<a href="javascript:location.reload();"><img border="0"
+				src="logo.png" width="100" alt="logo"></a>
 		</center>
 		<script>
 			var hiduke = new Date();
@@ -109,8 +111,40 @@
 				<a style="cursor: pointer;">たたむ</a>
 			</div>
 		</div>
-		<div id = "logout">ログアウト</div>
 	</div>
-	<div id="main"></div>
+	<div id="main">
+		<DIV id="dValue" style="position: absolute; visibility: hidden"></DIV>
+		<TABLE>
+			<TR>
+				<TD align="left" width="90px"><DIV style="cursor: pointer"
+						onClick="carenda(1)">
+						<FONT color="black" size="3"><B>&lt;先月へ</B></FONT>
+					</DIV></TD>
+				<TD align="center"><FONT color="gray" size="5"><B>カレンダー</B></FONT></TD>
+				<TD align="right" width="90px"><DIV style="cursor: pointer"
+						onClick="carenda(2)">
+						<FONT color="black" size="3"><B>来月へ&gt;</B></FONT>
+					</DIV></TD>
+			</TR>
+			<TR>
+				<TD colspan="3">
+					<TABLE>
+						<TR>
+							<TD>
+								<DIV id="carenda">
+									<SCRIPT type="text/JavaScript">
+									<!--
+										carenda(0);
+									//-->
+									</SCRIPT>
+								</DIV>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+	</div>
+
 </body>
 </html>

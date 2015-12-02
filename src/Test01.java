@@ -24,7 +24,7 @@ public class Test01 extends HttpServlet {
 	private Oracle mOracle;
 	String lA = Login.logA;
 	String lB = Login.logB;
-	String uid;
+	public static	String uid;
 
 	// タグの無効化
 	public static String CONVERT(String str) {
@@ -97,13 +97,13 @@ public class Test01 extends HttpServlet {
 //					+ "flag number,naiyou varchar2(100))");
 //			mOracle.execute("create table T_JIKANWARI(id number,day varchar2(50),period number,naiyo varchar2(100))");
 
-			String us = String.format(
+			 String us = String.format(
 					"select ID from t_user where name = '%s' and pass = '%s'",
 					lA, lB);
 			ResultSet userid = mOracle.query(us);
 
 			while (userid.next()) {
-				uid = userid.getString(1);
+				uid	 = userid.getString(1);
 			}
 
 //			for (int i = 0; i < 45; i++) {
