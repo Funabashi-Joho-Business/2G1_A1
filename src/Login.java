@@ -107,6 +107,7 @@ public class Login extends HttpServlet {
 				mOracle.query(sql);
 				flag = 1;
 			}
+			logA = null; logB = null;
 			logA = logindata.A;
 			logB = logindata.B;
 			mOracle.close();

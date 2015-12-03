@@ -1,5 +1,5 @@
 ﻿//ページ読み込みイベントに登録
-//document.addEventListener("DOMContentLoaded",onJson(data), false);
+document.addEventListener("DOMContentLoaded", Main, false);
 
 // ファイル読み込み機能(url:アドレス proc:データ読み込み時のコールバックファンクション)
 function readFile(url, proc) {
@@ -12,6 +12,13 @@ function readFile(url, proc) {
 	xmlHttp.open('POST', url, true);
 	xmlHttp.send();
 }
+function Main() {
+	var output = document.querySelector("div#main");
+
+
+	function Func(req) {
+		output.innerHTML = req.responseText;
+	}
 
 
 
@@ -19,7 +26,7 @@ function readFile(url, proc) {
 		output.innerHTML = req.responseText;
 	}
 
-	//AFL.sendJson("Test01", {}, onJson);
+	AFL.sendJson("Test01", {}, onJson);
 	function onJson(data) {
 		var jikanwari = document.querySelector("div#j");
 		jikanwari.innerHTML = data.Name;
@@ -94,6 +101,6 @@ function readFile(url, proc) {
 			}
 		}
 	}
-
+}
 
 
